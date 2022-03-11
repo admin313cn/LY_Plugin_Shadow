@@ -1,0 +1,42 @@
+plugins {
+    id 'com.android.library'
+}
+
+android {
+    compileSdk 30
+
+    defaultConfig {
+        minSdk 21
+        targetSdk 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation 'commons-io:commons-io:2.5'//sample-host从assets中复制插件用的
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'com.squareup.okhttp3:okhttp:3.9.0'
+    implementation 'com.zhy:okhttputils:2.6.2'
+
+//    implementation 'androidx.appcompat:appcompat:1.2.0'
+////    implementation 'com.tencent.shadow.core:common'
+//    implementation 'com.tencent.shadow.dynamic:dynamic-host'
+
+    implementation files('./libs/common.jar')
+    implementation files('./libs/dynamic-host.jar')
+}
